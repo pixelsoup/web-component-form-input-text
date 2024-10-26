@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Checkbox Form</title>
+  <link rel="stylesheet" href="css/production.css">
+  <script type="module" src="./wc-form-input-text/form-input-text.js"></script>
+</head>
+<body>
+  <div class="containerPadded">
+    <h1>Form Associated Custom Element</h1>
+    <form id="myForm" action="https://formspree.io/f/xrbgbnbz" method="POST">
+      <form-text-input fieldname="someOtherPayloadKey" required>
+          <span slot="label">Your Name:</span>
+      </form-text-input>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', (event) => {
+            const isValid = [...form.elements].every(element => element.reportValidity());
+
+            if (!isValid) {
+                event.preventDefault(); // Prevent submission if any field is invalid
+                alert('Please fill out all required fields.');
+            } else {
+                // Log the payload for debugging
+                const payload = {};
+                [...form.elements].forEach(element => {
+                    if (element.name) {
+                        payload[element.getAttribute('fieldname') || element.name] = element.value || element.textContent.trim();
+                    }
+                });
+                console.log('Form Payload:', payload);
+            }
+        });
+    </script>
+  </div>
+</body>
+</html>

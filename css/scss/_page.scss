@@ -1,0 +1,46 @@
+.pageHeadingWrapper {
+  padding-left: 20px;
+
+  *+* {
+    margin-top: 5px;
+  }
+}
+
+.pageHeading {
+  font-size: 30px;
+  margin: 0;
+}
+
+.pageHeadingList {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative; /* Ensure proper stacking context */
+}
+.box.checked {
+  background-color: #007BFF;
+  border-color: #0056b3;
+}
+.checkmark {
+  display: none;
+  color: white;
+  font-size: 16px;
+}
+.box.checked .checkmark {
+  display: block; /* Show checkmark when checked */
+}
