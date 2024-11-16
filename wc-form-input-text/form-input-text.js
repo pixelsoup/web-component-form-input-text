@@ -18,7 +18,7 @@ class FormTextInput extends HTMLElement {
         this.#shadowRoot.appendChild(link);
 
         // Set up shadow DOM structure
-        this.#shadowRoot.innerHTML += /* html */`
+        this.#shadowRoot.innerHTML += `
             <label>
                 <slot name="label"></slot>
                 <div class="input-container">
